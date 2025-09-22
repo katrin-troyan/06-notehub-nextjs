@@ -1,21 +1,12 @@
 import axios from "axios";
-
-export type Note = {
-  id: string;
-  title: string;
-  content: string;
-  categoryId: string;
-  userId: string;
-  createdAt: string;
-  updatedAt: string;
-};
+import { Note } from "@/types/note";
 
 export type NoteListResponse = {
   notes: Note[];
   total: number;
 };
 
-axios.defaults.baseURL = "https://next-docs-api.onrender.com";
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
