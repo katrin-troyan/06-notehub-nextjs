@@ -14,7 +14,7 @@ export default function NotesClient() {
     <section>
       <h1>Notes List</h1>
       {data?.notes?.length ? (
-        <NoteList notes={data.notes} />
+        <NoteList notes={data.notes} onDelete={() => {}} />
       ) : (
         <p>No notes yet</p>
       )}
