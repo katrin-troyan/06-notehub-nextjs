@@ -74,7 +74,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .link {
   align-self: flex-end;
   padding: 6px 12px;

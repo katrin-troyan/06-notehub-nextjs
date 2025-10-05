@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
-import { getSingleNote } from "@/lib/api";
+import { fetchNoteById } from "@/lib/api";
 import css from "./NoteDetails.module.css";
 
 const NoteDetailsClient = () => {
@@ -14,7 +14,7 @@ const NoteDetailsClient = () => {
     error,
   } = useQuery({
     queryKey: ["note", id],
-    queryFn: () => getSingleNote(id),
+    queryFn: () => fetchNoteById(id),
     refetchOnMount: false,
   });
 
@@ -26,10 +26,10 @@ const NoteDetailsClient = () => {
     <div className={css.container}>
       <div className={css.item}>
         <div className={css.header}>
-          <h2>Note title</h2>
+          <h2>{note.title}</h2>
         </div>
-        <p className={css.content}>Note content</p>
-        <p className={css.date}>Created date</p>
+        <p className={css.content}>{note.content}</p>
+        <p className={css.date}>{note.createdAt}</p>
       </div>
     </div>
   );
